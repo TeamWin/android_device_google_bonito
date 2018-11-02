@@ -89,6 +89,11 @@ TARGET_RECOVERY_UI_LIB := \
 BOARD_AVB_ENABLE := true
 BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 
+TARGET_RECOVERY_TWRP_LIB := \
+  librecovery_twrp_bonito \
+  libnos_citadel_for_recovery \
+  libnos_for_recovery liblog
+
 # Enable chain partition for system.
 BOARD_AVB_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 BOARD_AVB_SYSTEM_ALGORITHM := SHA256_RSA2048
@@ -234,3 +239,20 @@ BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/b4s4-setup.sh
 BOARD_USES_SDM845_QCRIL := true
 
 -include vendor/google_devices/bonito/proprietary/BoardConfigVendor.mk
+
+# TWRP
+TW_THEME := portrait_hdpi
+BOARD_SUPPRESS_SECURE_ERASE := true
+TARGET_RECOVERY_QCOM_RTC_FIX := true
+TW_INPUT_BLACKLIST := "hbtp_vm"
+TW_DEFAULT_BRIGHTNESS := "80"
+TW_INCLUDE_CRYPTO := true
+AB_OTA_UPDATER := true
+TW_EXCLUDE_DEFAULT_USB_INIT := true
+TARGET_USES_LOGD := true
+TW_NO_HAPTICS := true
+TW_EXCLUDE_MTP := true
+PLATFORM_SECURITY_PATCH := 2025-12-31
+TW_USE_TOOLBOX := true
+TW_INCLUDE_REPACKTOOLS := true
+TW_EXCLUDE_TWRPAPP := true
