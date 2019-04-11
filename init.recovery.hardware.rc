@@ -104,6 +104,13 @@ on property:prep.decrypt=1
     start keymaster-4-0
     setprop weaver.startup 1
 
+service ldconfigtxt /sbin/touch /sbin/ld.config.txt
+    oneshot
+    seclabel u:r:recovery:s0
+
+on boot
+	export LD_CONFIG_FILE /sbin/ld.config.txt
+
 on property:sys.usb.ffs.ready=1
     mkdir /config/usb_gadget/g1/configs/b.1 0777 shell shell
     symlink /config/usb_gadget/g1/configs/b.1 /config/usb_gadget/g1/os_desc/b.1
