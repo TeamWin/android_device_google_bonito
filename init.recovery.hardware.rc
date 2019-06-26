@@ -45,7 +45,6 @@ service vndservicemanager /sbin/vndservicemanager /dev/vndbinder
     disabled
     user root
     group root
-    writepid /dev/cpuset/system-background/tasks
     seclabel u:r:recovery:s0
 
 service vendor.citadeld /sbin/citadeld
@@ -66,7 +65,6 @@ service servicemanager /sbin/servicemanager
     user root
     group root readproc
     seclabel u:r:recovery:s0
-    writepid /dev/cpuset/system-background/tasks
 
 service vendor.boot-hal-1-0 /sbin/android.hardware.boot@1.0-service
     disabled
