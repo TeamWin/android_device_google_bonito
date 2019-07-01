@@ -102,6 +102,7 @@ PRODUCT_PACKAGES += \
     android.hardware.dumpstate@1.0-service.bonito
 
 PRODUCT_COPY_FILES += \
+    device/google/bonito/recovery/root/etc/update-payload-key.pub.pem:recovery/root/etc/update-payload-key.pub.pem \
     device/google/bonito/recovery/root/etc/twrp.fstab:recovery/root/etc/twrp.fstab \
     device/google/bonito/recovery/root/sbin/prepdecrypt.sh:recovery/root/sbin/prepdecrypt.sh \
     device/google/bonito/recovery/root/system/etc/vintf/manifest.xml:recovery/root/manifest.xml \
@@ -150,4 +151,5 @@ PRODUCT_COPY_FILES += \
     device/google/bonito/recovery/root/sbin/libicuuc.so:recovery/root/sbin/libicuuc.so \
     device/google/bonito/recovery/root/sbin/libxml2.so:recovery/root/sbin/libxml2.so \
     device/google/bonito/recovery/root/sbin/libion.so:recovery/root/sbin/libion.so \
+    device/google/bonito/recovery/root/sbin/update_engine_sideload:recovery/root/sbin/update_engine_sideload \
     device/google/bonito/recovery/root/sbin/android.hardware.confirmationui@1.0.so:recovery/root/sbin/android.hardware.confirmationui@1.0.so
