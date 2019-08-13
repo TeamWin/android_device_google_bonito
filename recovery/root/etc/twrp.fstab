@@ -1,11 +1,12 @@
-/dev/block/bootdevice/by-name/boot                                                              /boot                        emmc     defaults                                                                                                                                                    wait,slotselect
-/dev/block/bootdevice/by-name/system                                                         /system                    ext4        ro,barrier=1,discard                                                                                                                               wait,slotselect
-/dev/block/bootdevice/by-name/system                                                         /system_image       emmc                                                                                                                                                                        slotselect
-/dev/block/bootdevice/by-name/vendor                                                          /vendor                    ext4        ro,barrier=1,discard                                                                                                                               wait,slotselect
-/dev/block/bootdevice/by-name/vendor                                                          /vendor_image       emmc     
-/dev/block/bootdevice/by-name/metadata                                                     /metadata               ext4       defaults                                                                                                                                                    display="Metadata"
-/dev/block/bootdevice/by-name/userdata                                                       /data                         f2fs       noatime,nosuid,nodev,discard,reserve_root=32768,resgid=1065,fsync_mode=nobarrier      wait,check,fileencryption=ice,keydirectory=/metadata/vold/metadata_encryption,formattable
-/dev/block/bootdevice/by-name/misc                                                               /misc                        emmc   defaults                                                                                                                                                     defaults
-/dev/block/bootdevice/by-name/persist                                                           /persist	                  ext4	defaults			                                                                                                                             display="Persist"
-/devices/platform/soc/a600000.ssusb/a600000.dwc3/xhci-hcd.*.auto*     /usb_otg    vfat       defaults                                                                                                                                           voldmanaged=usbotg:auto,display="USB-OTG",storage,wipeingui,removable
+/boot           emmc   /dev/block/bootdevice/by-name/boot       flags=wait;slotselect
+/system         ext4   /dev/block/bootdevice/by-name/system     flags=wait;slotselect
+/system_image   emmc   /dev/block/bootdevice/by-name/system     flags=slotselect
+/vendor         ext4   /dev/block/bootdevice/by-name/vendor     flags=wait;slotselect
+/vendor_image   emmc   /dev/block/bootdevice/by-name/vendor     flags=slotselect
+/metadata       ext4   /dev/block/bootdevice/by-name/metadata   flags=display="Metadata"
+/data           f2fs   /dev/block/bootdevice/by-name/userdata   flags=wait;check;fileencryption=ice;keydirectory=/metadata/vold/metadata_encryption;formattable
+/misc           emmc   /dev/block/bootdevice/by-name/misc
+/persist        ext4   /dev/block/bootdevice/by-name/persist    flags=display="Persist"
 
+# USB OTG
+/usb_otg        vfat   /dev/block/sda1         /dev/block/sda   flags=display="USB-OTG";storage;wipeingui;removable
