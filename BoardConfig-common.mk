@@ -234,6 +234,7 @@ BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/b4s4-setup.sh
 
 # Single vendor RIL with SDM845
 BOARD_USES_SDM845_QCRIL := true
+USE_COMMON_BOOTCTRL := true
 
 # TWRP
 TW_THEME := portrait_hdpi
